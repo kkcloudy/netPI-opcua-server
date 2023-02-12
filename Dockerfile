@@ -1,7 +1,7 @@
 #STEP 1 of multistage build ---Compile opc ua library ---
 
 #use armv7hf compatible base image
-FROM balenalib/armv7hf-debian:stretch-20191223 as builder
+FROM balenalib/aarch64-debian:stretch as builder
 
 #install tools for building the open64541 library
 RUN apt-get update \
@@ -40,8 +40,8 @@ RUN wget https://github.com/open62541/open62541/archive/v1.1-rc1.tar.gz \
 
 #STEP 2 of multistage build ----Create the final image-----
 
-#use armv7hf compatible base image
-FROM balenalib/armv7hf-debian:stretch-20191223
+#use armv8 compatible base image
+FROM balenalib/aarch64-debian:stretch
 
 #dynamic build arguments coming from the /hook/build file
 ARG BUILD_DATE

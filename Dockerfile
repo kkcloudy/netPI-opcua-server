@@ -5,7 +5,7 @@ FROM balenalib/aarch64-debian:stretch as builder
 
 #install tools for building the open64541 library
 RUN apt-get update \
-    && apt-get install ssh git build-essential gcc pkg-config cmake python wget \
+    && apt-get install git build-essential gcc pkg-config cmake python wget \
     && apt-get install cmake-curses-gui \
     && apt-get install libmbedtls-dev \
     && apt-get install check \
@@ -61,7 +61,7 @@ LABEL maintainer="netpi@hilscher.com" \
       description="OPC UA Server"
 
 RUN apt-get update \
-    && apt-get install -y build-essential curl python python-pip python-dev \
+    && apt-get install -y ssh build-essential curl python python-pip python-dev \
     && echo 'root:root' | chpasswd
 
 #install python tools

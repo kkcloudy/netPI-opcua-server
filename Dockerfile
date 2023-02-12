@@ -5,7 +5,7 @@ FROM balenalib/aarch64-debian:stretch as builder
 
 #install tools for building the open64541 library
 RUN apt-get update \
-    && apt-get install git build-essential gcc pkg-config cmake python wget \
+    && apt-get install ssh git build-essential gcc pkg-config cmake python wget \
     && apt-get install cmake-curses-gui \
     && apt-get install libmbedtls-dev \
     && apt-get install check \
